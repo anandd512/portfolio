@@ -1,5 +1,6 @@
+import { MapPin } from 'lucide-react';
 import { Reveal } from './Reveal';
-import { experience } from '@/lib/site';
+import { experience, experienceHeading } from '@/lib/site';
 
 export function ExperienceSection() {
   return (
@@ -9,7 +10,7 @@ export function ExperienceSection() {
           <div className="md:sticky md:top-28">
             <div className="eyebrow">Experience</div>
             <h2 className="mt-4 font-display text-[clamp(1.7rem,3.2vw,2.5rem)] font-bold leading-tight tracking-tight">
-              Engineer, then product — the order matters.
+              {experienceHeading}
             </h2>
           </div>
         </Reveal>
@@ -25,9 +26,13 @@ export function ExperienceSection() {
               <Reveal key={`${entry.org}-${i}`} delay={i * 0.06}>
                 <li className="relative pl-9">
                   <span className="absolute left-0 top-1.5 h-4 w-4 rounded-full border-2 border-accent bg-paper" />
-                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-ink-soft">
-                    {entry.period}
-                  </p>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-[0.12em] text-ink-soft">
+                    <span>{entry.period}</span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <MapPin aria-hidden="true" size={12} />
+                      {entry.location}
+                    </span>
+                  </div>
                   <h3 className="mt-1.5 font-display text-xl font-bold">
                     {entry.role}
                     <span className="text-ink-soft"> · {entry.org}</span>

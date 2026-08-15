@@ -21,7 +21,7 @@ export function Footer() {
             </span>
           </a>
           <p className="mt-5 max-w-[46ch]" style={{ color: 'rgb(var(--paper) / 0.7)' }}>
-            Building something, hiring, or just want to compare notes on product and
+            Building something, or just want to compare notes on product and
             AI-assisted development? I’m easy to reach.
           </p>
         </Reveal>

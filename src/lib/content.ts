@@ -10,7 +10,7 @@ const CONTENT_DIR = path.join(process.cwd(), 'content');
  * Add a project by dropping a Markdown file into /content/projects.
  * Frontmatter schema is documented in content/projects/_TEMPLATE.md.
  * ------------------------------------------------------------------------- */
-export type ProjectStat = { value: string; label: string };
+export type BuildMetric = { label: string; value: string };
 
 export type ProjectMeta = {
   slug: string;
@@ -25,7 +25,9 @@ export type ProjectMeta = {
   demoUrl?: string;
   demoLabel?: string;
   repoUrl?: string;
-  stats?: ProjectStat[];
+  buildMetrics: BuildMetric[];
+  techStack: string[];
+  aiModels: string[];
 };
 
 export type Project = ProjectMeta & { content: string };
@@ -57,7 +59,9 @@ export function getAllProjects(): Project[] {
         demoUrl: data.demoUrl,
         demoLabel: data.demoLabel,
         repoUrl: data.repoUrl,
-        stats: data.stats ?? [],
+        buildMetrics: data.buildMetrics ?? [],
+        techStack: data.techStack ?? [],
+        aiModels: data.aiModels ?? [],
         content,
       } satisfies Project;
     })

@@ -12,13 +12,13 @@ export const site = {
   // The hero headline. Wrap the phrase you want highlighted in {{ }}.
   heroHeadline: 'I build products — {{sometimes for millions, sometimes just to see if I can.}}',
   heroSub:
-    'Senior PM by day, builder by compulsion. I use AI-assisted development to go from “what if” to “try it yourself” in days, not quarters. Everything here is real — poke around.',
+    'I work on security products at Microsoft. Outside work, I use AI-assisted development to explore ideas, build small experiments, and learn by making.',
 
   // Contact + social. Leave a value empty ('') to hide that link.
   email: 'anandd512@gmail.com',
   links: {
     linkedin: 'https://www.linkedin.com/in/anandd512',
-    github: 'https://github.com/your-handle',
+    github: 'https://github.com/anandd512',
     resume: '/resume.pdf', // drop resume.pdf into /public
   },
 
@@ -78,29 +78,50 @@ export type TimelineEntry = {
   period: string;
   role: string;
   org: string;
+  location: string;
   detail: string;
 };
 
+export const experienceHeading = 'The work changed. The curiosity stayed.';
+
 export const experience: TimelineEntry[] = [
   {
-    period: '2021 — Present',
+    period: '2024 — Present',
     role: 'Senior Product Manager',
     org: 'Microsoft',
+    location: 'Bangalore',
     detail:
-      'Founding PM for App Governance — took it 0→1 into Microsoft Defender, now protecting 45K+ enterprise customers. Leading security against non-human and AI agent identity threats.',
+      'Leading security against non-human and AI agent identity threats in Microsoft Defender.',
+  },
+  {
+    period: '2021 — 2024',
+    role: 'Product Manager 2',
+    org: 'Microsoft',
+    location: 'Hyderabad',
+    detail:
+      'Founding PM for App Governance — took it 0→1 into Microsoft Defender, now protecting 45K+ enterprise customers.',
+  },
+  {
+    period: '2019 — 2021',
+    role: 'PGDM, Business Management',
+    org: 'XLRI',
+    location: 'Jamshedpur',
+    detail:
+      'Studied business management after working as a software engineer, widening the lens from building systems to shaping products.',
   },
   {
     period: '2016 — 2019',
     role: 'Senior Software Engineer',
     org: 'CouponDunia (acq. Times Group)',
+    location: 'Mumbai',
     detail:
       'Built consumer-scale services — gamification (+24% transactions), a 5M+ subscriber marketing platform, and a homepage rebuild (2.4s → 350ms).',
   },
   {
-    period: '2019 — 2021',
-    role: 'PGDM, Business Management',
-    org: 'XLRI, Jamshedpur',
-    detail:
-      'MBA following a B.Tech in Computer Science from VNIT Nagpur — the pivot from engineer to product.',
+    period: '2012 — 2016',
+    role: 'B.Tech, Computer Science & Engineering',
+    org: 'Visvesvaraya National Institute of Technology',
+    location: 'Nagpur',
+    detail: 'Learned the foundations of software engineering and how to turn ideas into working systems.',
   },
 ];

@@ -11,14 +11,22 @@ tags:
   - Game mechanics
   - AI-assisted dev
 demoUrl: ''
-repoUrl: ''
-stats:
-  - value: '4'
-    label: ghost pursuit behaviors
-  - value: '1'
-    label: new build capability unlocked
-  - value: '↑'
-    label: confidence to attempt the platform
+repoUrl: 'https://github.com/anandd512/PACMAN'
+buildMetrics:
+  - label: Time to build
+    value: 1 week
+  - label: Learning curve
+    value: High
+  - label: Built on
+    value: '2024'
+techStack:
+  - JavaScript
+  - HTML Canvas
+  - CSS
+aiModels:
+  - Claude Sonnet
+  - Claude Opus 4.8
+  - GPT 5.4–5.6
 ---
 
 ## The story

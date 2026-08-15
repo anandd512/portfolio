@@ -12,7 +12,7 @@ export default function HomePage() {
 
   return (
     <main>
-      <Hero projects={projects} />
+      <Hero />
       <WorkSection projects={projects} />
       <AboutSection />
       <ExperienceSection />

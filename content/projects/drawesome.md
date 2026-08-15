@@ -3,7 +3,7 @@ title: Drawesome
 summary: A browser-based whiteboard that turns rough ideas into polished diagrams with smart connectors, automatic alignment, and optional AI generation.
 year: '2026'
 role: Product · Design · Build
-order: 3
+order: 2
 featured: true
 accent: '#2F7D74'
 tags:
@@ -12,13 +12,25 @@ tags:
   - AI-assisted workflows
 demoUrl: https://anandd512.github.io/drawesome
 repoUrl: https://github.com/anandd512/drawesome
-stats:
-  - value: '< 1 min'
-    label: idea to first diagram
-  - value: '0'
-    label: accounts or installs
-  - value: '2'
-    label: sketch and clean themes
+buildMetrics:
+  - label: Time to build
+    value: 1 week
+  - label: Learning curve
+    value: Medium
+  - label: Built on
+    value: Aug 2026
+techStack:
+  - React 18
+  - TypeScript
+  - Vite 5
+  - Zustand
+  - roughjs
+  - perfect-freehand
+  - Tailwind CSS
+aiModels:
+  - Claude Sonnet
+  - Claude Opus 4.8
+  - GPT 5.4–5.6
 ---
 
 ## The story

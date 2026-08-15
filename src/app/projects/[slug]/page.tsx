@@ -98,17 +98,18 @@ export default async function ProjectPage({
           </Reveal>
         </div>
 
-        {/* stats band */}
-        {project.stats && project.stats.length > 0 ? (
+        {project.buildMetrics.length > 0 ? (
           <div className="wrap mt-14">
             <Reveal>
               <div className="grid gap-4 border-y border-line/10 py-8 sm:grid-cols-3">
-                {project.stats.map((s) => (
-                  <div key={s.label}>
-                    <b className="block font-display text-3xl font-bold text-accent">
-                      {s.value}
+                {project.buildMetrics.map((metric) => (
+                  <div key={metric.label}>
+                    <b className="block font-display text-xl font-bold text-ink">
+                      {metric.value}
                     </b>
-                    <i className="not-italic text-sm text-ink-soft">{s.label}</i>
+                    <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.1em] text-ink-soft">
+                      {metric.label}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -121,6 +122,42 @@ export default async function ProjectPage({
           <Reveal>
             <Markdown>{project.content}</Markdown>
           </Reveal>
+
+          {(project.techStack.length > 0 || project.aiModels.length > 0) && (
+            <Reveal className="mt-16 border-t border-line/15 pt-8">
+              <h2 className="font-display text-2xl font-bold">Build notes</h2>
+              <div className="mt-6 grid gap-8 sm:grid-cols-2">
+                {project.techStack.length > 0 ? (
+                  <div>
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+                      Tech stack
+                    </h3>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {project.techStack.map((technology) => (
+                        <li key={technology} className="rounded-full border border-line/20 px-3 py-1.5 text-sm">
+                          {technology}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+                {project.aiModels.length > 0 ? (
+                  <div>
+                    <h3 className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+                      AI models used
+                    </h3>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {project.aiModels.map((model) => (
+                        <li key={model} className="rounded-full border border-line/20 px-3 py-1.5 text-sm">
+                          {model}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+            </Reveal>
+          )}
         </div>
       </article>
 

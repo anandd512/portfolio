@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Home } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { nav, site } from '@/lib/site';
 import { ThemeToggle } from './ThemeToggle';
@@ -26,10 +27,10 @@ export function Nav() {
       <div className="mx-auto flex max-w-content items-center justify-between px-6 py-3.5 md:px-7">
         <Link
           href="/"
-          className="flex items-center gap-1.5 font-display text-lg font-bold tracking-tight"
+          aria-label="Home"
+          className="-ml-2 flex size-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5"
         >
-          {site.name.split(' ')[0]}
-          <span className="text-accent">.</span>
+          <Home aria-hidden="true" className="size-5" strokeWidth={2} />
         </Link>
 
         <div className="flex items-center gap-5 md:gap-7">

@@ -3,7 +3,7 @@ title: ELI5
 summary: A browser extension that explains unfamiliar terms in place at the depth each reader needs, without breaking their flow or routing content through a third party.
 year: '2026'
 role: Product · Design · Build
-order: 2
+order: 3
 featured: true
 accent: '#3976A8'
 tags:
@@ -12,13 +12,23 @@ tags:
   - Privacy by design
 demoUrl: https://github.com/anandd512/ELI5
 demoLabel: View & install
-stats:
-  - value: '5'
-    label: answer sections
-  - value: '3'
-    label: explanation depths
-  - value: '0'
-    label: accounts or backend services
+buildMetrics:
+  - label: Time to build
+    value: 1 week
+  - label: Learning curve
+    value: Medium
+  - label: Built on
+    value: Aug 2026
+techStack:
+  - JavaScript
+  - HTML
+  - CSS
+  - Chrome Extension APIs
+  - Azure OpenAI
+aiModels:
+  - Claude Sonnet
+  - Claude Opus 4.8
+  - GPT 5.4–5.6
 ---
 
 ## The story

@@ -1,5 +1,5 @@
 ---
-title: Taash Table
+title: CardArena
 summary: A real-time multiplayer platform for the Indian card games we grew up on — Judgement and Dehla Pakad — built so scattered friends could play at the same table again.
 year: '2025'
 role: Product · Build · Ship
@@ -10,15 +10,24 @@ tags:
   - Real-time multiplayer
   - Platform architecture
   - Zero-to-one
-demoUrl: ''
-repoUrl: ''
-stats:
-  - value: '[X]'
-    label: games played
-  - value: '[X wks]'
-    label: idea to first multiplayer hand
-  - value: '♥'
-    label: my college group plays again
+demoUrl: 'https://cardgames-app-2026-cefpbchdg8c3hrdr.centralindia-01.azurewebsites.net/'
+repoUrl: 'https://github.com/anandd512/cardgames'
+buildMetrics:
+  - label: Time to build
+    value: 8 weeks
+  - label: Learning curve
+    value: High
+  - label: Built on
+    value: '2025'
+techStack:
+  - React
+  - Node.js
+  - Socket.IO
+  - Azure App Service
+aiModels:
+  - Claude Sonnet
+  - Claude Opus 4.8
+  - GPT 5.4–5.6
 ---
 
 ## The story

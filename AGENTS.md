@@ -64,7 +64,7 @@ Portfolio/
    │     └─ [slug]/page.tsx      ← post detail (SSG)
    ├─ components/                ← presentational; read data, don't hard-code copy
    │  ├─ Nav.tsx  ThemeToggle.tsx  ThemeProvider.tsx  Reveal.tsx
-   │  ├─ Hero.tsx                ← headline + fanning "project stack"
+  │  ├─ Hero.tsx                ← headline + responsive project canvas
    │  ├─ WorkSection.tsx  ProjectCard.tsx
    │  ├─ AboutSection.tsx        ← About + "How I work" loop
    │  ├─ ExperienceSection.tsx   ← career timeline
@@ -93,7 +93,7 @@ Exports you will edit most often:
 - **`experience`** — career timeline (newest first): `{ period, role, org, detail }[]`.
 
 Current real values: name **Anand Deshpande**, email **anandd512@gmail.com**, LinkedIn
-**linkedin.com/in/anandd512**. GitHub is still a placeholder (`your-handle`). Resume expects
+**linkedin.com/in/anandd512**, GitHub **github.com/anandd512**. Resume expects
 `public/resume.pdf`.
 
 ### 4b. `/content/projects/*.md` — projects
@@ -114,8 +114,12 @@ accent: '#C05B3F'        # optional dot color on hero stack
 tags: [string, ...]
 demoUrl: string          # optional — shows "Try it live"
 repoUrl: string          # optional — shows "Source"
-stats:                   # optional — 3 look best
-  - { value: '10k+', label: 'games played' }
+buildMetrics:
+  - { label: 'Time to build', value: '2 weeks' }
+  - { label: 'Learning curve', value: 'Medium' }
+  - { label: 'Built on', value: 'Jan 2025' }
+techStack: [string, ...]
+aiModels: [string, ...]
 ---
 Markdown body: ## The story / ## What I built / ## Decisions & trade-offs / ## Outcome
 ```
@@ -146,7 +150,7 @@ Markdown body
 `WritingTeaser` (latest 3 posts) → `Footer` (contact CTA).
 
 Section anchor IDs (used by nav): `#work`, `#about`, `#experience`, `#writing`, `#contact`.
-The Hero "project stack" shows the **first 3** projects by `order`.
+The Hero project canvas shows **all projects** by `order` in a compact typographic grid.
 
 ---
 
@@ -203,13 +207,14 @@ Markdown output is styled by the `.prose-ink` rules in `globals.css`.
 
 ## 9. Facts about Anand (for accurate copy)
 
-- **Now:** Senior Product Manager at **Microsoft** (since 2021). Founding PM for **App Governance**
-  — took it 0→1 into **Microsoft Defender**, protecting **45K+ enterprise customers**; focus on
-  security against **non-human & AI-agent identity** threats.
-- **Before:** Senior Software Engineer at **CouponDunia** (acq. Times Group), 2016–2019.
+- **Now:** Senior Product Manager at **Microsoft** (since 2024), based in Bangalore and focused on
+  security against **non-human & AI-agent identity** threats. Joined Microsoft in 2021 as Product
+  Manager 2 and was founding PM for **App Governance**, taking it 0→1 into **Microsoft Defender**
+  and protecting **45K+ enterprise customers**.
+- **Before:** Senior Software Engineer at **CouponDunia** (acq. Times Group), Mumbai, 2016–2019.
 - **Education:** PGDM (MBA) from **XLRI Jamshedpur**; B.Tech CSE from **VNIT Nagpur**.
-- **Based in:** Bengaluru, India.
-- **Projects:** *Taash Table* (real-time multiplayer platform for Indian card games — Judgement,
+- **Based in:** Bangalore, India.
+- **Projects:** *CardArena* (real-time multiplayer platform for Indian card games — Judgement,
   Dehla Pakad) and *Pacman, Rebuilt* (AI-assisted learning project).
 - **Voice:** builder-who-ships; concrete over abstract; playable over described; humble but
   outcome-driven. Avoid buzzword-heavy marketing tone.
@@ -230,10 +235,10 @@ Markdown output is styled by the `.prose-ink` rules in `globals.css`.
 - **Tagline:** A product builder & tinkerer.
 - **Headline:** I build products — *sometimes for millions, sometimes just to see if I can.*
   (the italic phrase is the highlighted span, wrapped as `{{ }}` in source)
-- **Sub-headline:** Senior PM by day, builder by compulsion. I use AI-assisted development to go
-  from "what if" to "try it yourself" in days, not quarters. Everything here is real — poke around.
+- **Sub-headline:** I work on security products at Microsoft. Outside work, I use AI-assisted
+  development to explore ideas, build small experiments, and learn by making.
 - **Buttons:** "See the work" (→ `#work`) · "LinkedIn" (→ linkedin.com/in/anandd512)
-- **Hero visual:** a fanning stack of the first 3 projects (by `order`).
+- **Hero visual:** a responsive typographic canvas of all projects (by `order`).
 
 ## 10.2 Navigation — *(src/lib/site.ts → `nav`)*
 
@@ -243,7 +248,7 @@ Markdown output is styled by the `.prose-ink` rules in `globals.css`.
 
 - **Email:** anandd512@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/anandd512
-- **GitHub:** _placeholder_ `https://github.com/your-handle` (update when available)
+- **GitHub:** https://github.com/anandd512
 - **Resume:** `/resume.pdf` (expects `public/resume.pdf`)
 - **Location:** Bengaluru, India
 
@@ -271,16 +276,20 @@ Markdown output is styled by the `.prose-ink` rules in `globals.css`.
 
 ## 10.6 Experience timeline — *(src/lib/site.ts → `experience`, newest first)*
 
-| Period | Role | Org | Detail |
-| --- | --- | --- | --- |
-| 2021 — Present | Senior Product Manager | Microsoft | Founding PM for App Governance — took it 0→1 into Microsoft Defender, now protecting 45K+ enterprise customers. Leading security against non-human and AI agent identity threats. |
-| 2016 — 2019 | Senior Software Engineer | CouponDunia (acq. Times Group) | Built consumer-scale services — gamification (+24% transactions), a 5M+ subscriber marketing platform, and a homepage rebuild (2.4s → 350ms). |
-| 2019 — 2021 | PGDM, Business Management | XLRI, Jamshedpur | MBA following a B.Tech in Computer Science from VNIT Nagpur — the pivot from engineer to product. |
+**Heading:** The work changed. The curiosity stayed.
+
+| Period | Role | Org | Location | Detail |
+| --- | --- | --- | --- | --- |
+| 2024 — Present | Senior Product Manager | Microsoft | Bangalore | Leading security against non-human and AI agent identity threats in Microsoft Defender. |
+| 2021 — 2024 | Product Manager 2 | Microsoft | Hyderabad | Founding PM for App Governance — took it 0→1 into Microsoft Defender, now protecting 45K+ enterprise customers. |
+| 2019 — 2021 | PGDM, Business Management | XLRI | Jamshedpur | Studied business management after working as a software engineer, widening the lens from building systems to shaping products. |
+| 2016 — 2019 | Senior Software Engineer | CouponDunia (acq. Times Group) | Mumbai | Built consumer-scale services — gamification (+24% transactions), a 5M+ subscriber marketing platform, and a homepage rebuild (2.4s → 350ms). |
+| 2012 — 2016 | B.Tech, Computer Science & Engineering | Visvesvaraya National Institute of Technology | Nagpur | Learned the foundations of software engineering and how to turn ideas into working systems. |
 
 ## 10.7 Footer / contact CTA — *(src/lib/site.ts → `site.footerNote` + Footer.tsx)*
 
 - **CTA heading:** Let's talk ↗ (links to email)
-- **CTA sub:** Building something, hiring, or just want to compare notes on product and
+- **CTA sub:** Building something, or just want to compare notes on product and
   AI-assisted development? I'm easy to reach.
 - **Footer note:** Built with Next.js & AI — reviewed by a human.
 
@@ -288,15 +297,17 @@ Markdown output is styled by the `.prose-ink` rules in `globals.css`.
 
 ## 10.8 Projects — *(source of truth: `/content/projects/*.md`)*
 
-### Project 1 — Taash Table  ·  slug: `taash-table`  ·  `/projects/taash-table/`
+### Project 1 — CardArena  ·  slug: `taash-table`  ·  `/projects/taash-table/`
 
 **Frontmatter**
 - summary: A real-time multiplayer platform for the Indian card games we grew up on — Judgement and
   Dehla Pakad — built so scattered friends could play at the same table again.
 - year: 2025 · role: Product · Build · Ship · order: 1 · featured: true · accent: `#C05B3F`
 - tags: Real-time multiplayer · Platform architecture · Zero-to-one
-- demoUrl: _(empty)_ · repoUrl: _(empty)_
-- stats: `[X]` games played · `[X wks]` idea to first multiplayer hand · `♥` my college group plays again
+- demoUrl: `https://cardgames-app-2026-cefpbchdg8c3hrdr.centralindia-01.azurewebsites.net/` · repoUrl: `https://github.com/anandd512/cardgames`
+- build: `8 weeks` · learning curve: `High` · built on: `2025`
+- tech stack: React · Node.js · Socket.IO · Azure App Service
+- AI models: Claude Sonnet · Claude Opus 4.8 · GPT 5.4–5.6
 
 **Body**
 
@@ -336,15 +347,17 @@ Markdown output is styled by the `.prose-ink` rules in `globals.css`.
 > The original success metric was simple: my college group plays together again. Met. Now it's about
 > widening the table — more games, more groups, same one-minute path from link to first hand.
 
-### Project 2 — Pacman, Rebuilt  ·  slug: `pacman`  ·  `/projects/pacman/`
+### Project 4 — Pacman, Rebuilt  ·  slug: `pacman`  ·  `/projects/pacman/`
 
 **Frontmatter**
 - summary: The scoped learning project where I figured out where AI-assisted development genuinely
   shines — and where a builder's judgment is still irreplaceable.
-- year: 2024 · role: Learning · Build · order: 2 · featured: true · accent: `#E0A03C`
+- year: 2024 · role: Learning · Build · order: 4 · featured: true · accent: `#E0A03C`
 - tags: Learning project · Game mechanics · AI-assisted dev
-- demoUrl: _(empty)_ · repoUrl: _(empty)_
-- stats: `4` ghost pursuit behaviors · `1` new build capability unlocked · `↑` confidence to attempt the platform
+- demoUrl: _(empty)_ · repoUrl: `https://github.com/anandd512/PACMAN`
+- build: `1 week` · learning curve: `High` · built on: `2024`
+- tech stack: JavaScript · HTML Canvas · CSS
+- AI models: Claude Sonnet · Claude Opus 4.8 · GPT 5.4–5.6
 
 **Body**
 

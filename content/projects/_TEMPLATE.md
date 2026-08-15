@@ -18,13 +18,18 @@ tags:
 demoUrl: https://your-live-demo.example.com   # optional — shows "Try it live"
 demoLabel: Try it live                        # optional — customize for installs, downloads, etc.
 repoUrl: https://github.com/you/repo          # optional — shows "Source"
-stats:                                        # optional — up to 3 look best
-  - value: '10k+'
-    label: something measurable
-  - value: '2 wks'
-    label: idea to first users
-  - value: '★'
-    label: the qualitative win
+buildMetrics:
+  - label: Time to build
+    value: 2 weeks
+  - label: Learning curve
+    value: Medium
+  - label: Built on
+    value: Jan 2025
+techStack:
+  - TypeScript
+  - React
+aiModels:
+  - Model name
 ---
 
 ## The story

@@ -9,7 +9,7 @@ export function WorkSection({ projects }: { projects: ProjectMeta[] }) {
         <Reveal className="mb-12 max-w-2xl">
           <div className="eyebrow">Selected work</div>
           <h2 className="mt-4 font-display text-[clamp(1.9rem,3.4vw,2.9rem)] font-bold leading-tight tracking-tight">
-            Products I built to answer a question — then kept because they worked.
+            A few ideas I wanted to understand by building them.
           </h2>
         </Reveal>
 
