@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN TOKENS — modern minimal: near-white / near-black
+   neutrals with a single clay accent.
+   Colors are space-separated RGB channels so Tailwind's
+   <alpha-value> and rgb(var(--x) / .5) both work.
+   ============================================================ */
+:root {
+  --paper: 250 250 248; /* #FAFAF8 page */
+  --paper-deep: 242 241 237; /* #F2F1ED tinted bands */
+  --card: 255 255 255; /* #FFFFFF surfaces */
+  --ink: 17 19 24; /* #111318 text */
+  --ink-soft: 88 94 107; /* #585E6B secondary text */
+  --line: 17 19 24; /* used at low alpha for hairlines */
+  --accent: 201 74 38; /* #C94A26 clay */
+  --accent-soft: 235 128 92; /* #EB805C */
+}
+
+.dark {
+  --paper: 11 12 15; /* #0B0C0F */
+  --paper-deep: 18 20 25;
+  --card: 22 24 30;
+  --ink: 237 237 239;
+  --ink-soft: 158 163 175;
+  --line: 237 237 239;
+  --accent: 240 122 82; /* brighter clay for dark bg */
+  --accent-soft: 246 160 128;
+}
+
+/* Inverted panels (footer, highlight cards) use bg-ink + text-paper. In dark
+   mode, keep them dark instead of flipping to a light slab. */
+.dark .inverse {
+  --ink: 30 33 41;
+  --paper: 237 237 239;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* anchors land below the fixed nav */
+}
+
+body {
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: rgb(var(--accent));
+  color: rgb(var(--card));
+}
+
+:focus-visible {
+  outline: 3px solid rgb(var(--accent));
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- reusable atoms ---------- */
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 md:px-8;
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-3 z-[70] -translate-y-20 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-transform focus:translate-y-0;
+  }
+
+  .eyebrow {
+    @apply flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-ink-soft;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply inline-block size-1.5 rounded-full bg-accent;
+  }
+
+  .section-title {
+    @apply mt-4 font-display text-[clamp(1.85rem,3.6vw,3rem)] font-semibold leading-[1.05] tracking-[-0.035em];
+  }
+
+  /* The playful serif-italic accent used inside headlines. */
+  .serif-accent {
+    @apply font-serif font-normal italic tracking-normal text-accent;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-full text-[15px] font-medium
+           transition-all duration-300 ease-smooth;
+  }
+  .btn-primary {
+    @apply bg-ink px-6 py-3 text-paper hover:-translate-y-0.5;
+    box-shadow: 0 8px 24px -10px rgb(var(--ink) / 0.45);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 16px 34px -12px rgb(var(--ink) / 0.5);
+  }
+  .btn-ghost {
+    @apply border border-ink/25 px-6 py-3 text-ink hover:-translate-y-0.5 hover:border-ink/60;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line/15 px-3 py-1 text-[13px] text-ink-soft;
+  }
+
+  .card {
+    @apply rounded-card border border-line/10 bg-card;
+  }
+
+  .link-underline {
+    @apply underline decoration-accent/40 decoration-2 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+}
+
+/* ---------- motion ----------
+   Content is always visible in the static HTML. Browsers that support
+   scroll-driven animations get a gentle rise-in; everyone else just sees it. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+/* Theme switch: a circle that grows from the toggle (View Transitions API). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  animation: theme-reveal 650ms cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 100%) var(--vt-y, 0));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 100%) var(--vt-y, 0));
+  }
+}
+
+/* ---------- prose (markdown) styling ---------- */
+.prose-ink {
+  @apply text-[1.05rem] leading-[1.75] text-ink/90;
+}
+.prose-ink > :first-child {
+  @apply mt-0;
+}
+.prose-ink h2 {
+  @apply mb-4 mt-12 font-display text-2xl font-semibold tracking-[-0.025em] text-ink md:text-[1.75rem];
+}
+.prose-ink h3 {
+  @apply mb-3 mt-9 font-display text-xl font-semibold text-ink;
+}
+.prose-ink h4 {
+  @apply mb-3 mt-8 font-mono text-xs uppercase tracking-[0.14em] text-accent;
+}
+.prose-ink p {
+  @apply mb-4 max-w-[66ch];
+}
+.prose-ink a {
+  @apply font-medium text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent;
+}
+.prose-ink strong {
+  @apply font-semibold text-ink;
+}
+.prose-ink ul {
+  @apply mb-5 max-w-[66ch] list-none;
+}
+.prose-ink ul li {
+  @apply relative border-b border-dashed border-line/15 py-2.5 pl-6;
+}
+.prose-ink ul li::before {
+  content: '→';
+  @apply absolute left-0 top-2.5 text-accent;
+}
+.prose-ink ol {
+  @apply mb-5 ml-5 max-w-[66ch] list-decimal;
+}
+.prose-ink ol li {
+  @apply mb-2 pl-1;
+}
+.prose-ink blockquote {
+  @apply my-10 max-w-[30ch] border-l-2 border-accent pl-6 font-serif text-[1.75rem] italic leading-snug text-ink;
+}
+.prose-ink blockquote p {
+  @apply mb-0;
+}
+.prose-ink code {
+  @apply rounded bg-paper-deep px-1.5 py-0.5 font-mono text-[0.85em];
+}
+.prose-ink pre {
+  @apply my-6 overflow-x-auto rounded-card bg-ink p-5 text-paper;
+}
+.prose-ink pre code {
+  @apply bg-transparent p-0 text-paper;
+}
+.prose-ink img {
+  @apply my-6 rounded-card;
+}
+.prose-ink hr {
+  @apply my-10 border-line/15;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
