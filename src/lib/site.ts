@@ -55,7 +55,7 @@ export const nav: NavItem[] = [
 export const work = {
   eyebrow: 'Side projects',
   heading: 'Things I built because I couldn’t stop thinking about them.',
-  sub: 'They all work. Mostly. Each one taught me something a spec never would.',
+  sub: 'They all work. Mostly.',
 };
 
 /**
