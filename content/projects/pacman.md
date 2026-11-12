@@ -4,7 +4,7 @@ summary: The small learning project where I found out where AI-assisted developm
 date: '2025-08'
 role: Learning · Build
 status: Playable here
-order: 4
+order: 5
 featured: false
 accent: '#E0A03C'
 tags:

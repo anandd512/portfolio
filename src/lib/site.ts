@@ -15,12 +15,12 @@ export const site = {
   location: 'Bengaluru, India',
   url: 'https://ananddeshpande.in',
   description:
-    'Anand Deshpande builds small, real products with AI: a private finance app, a multiplayer card table, a whiteboard, a reading companion, and a Pacman with opinionated ghosts.',
+    'Anand Deshpande builds small, real products with AI: a private finance app, a multiplayer card table, a chess trainer, a whiteboard, a reading companion, and a Pacman with opinionated ghosts.',
 
   // The hero headline. Wrap the phrase you want highlighted in {{ }}.
   heroHeadline: 'Weekend projects, {{shipped like real products.}}',
   heroSub:
-    'I turn small personal itches into real, working products with AI-assisted development. So far: a private finance app, a card table for scattered friends, a whiteboard, a reading companion, and a Pacman with opinionated ghosts.',
+    'I turn small personal itches into real, working products with AI-assisted development. So far: a private finance app, a card table for scattered friends, a chess trainer, a whiteboard, a reading companion, and a Pacman with opinionated ghosts.',
 
   // Big numbers under the hero. `value: 'projects'` is replaced with the live project count.
   proof: [

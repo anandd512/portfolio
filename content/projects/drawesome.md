@@ -4,7 +4,7 @@ summary: A browser whiteboard that turns rough ideas into tidy diagrams, with sm
 date: '2026-08'
 role: Product · Design · Build
 status: Live
-order: 2
+order: 3
 featured: false
 accent: '#2F7D74'
 tags:

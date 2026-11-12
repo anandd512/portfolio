@@ -8,6 +8,12 @@ export function WorkSection({ projects }: { projects: ProjectMeta[] }) {
   const small = projects.filter((p) => !p.featured);
   const smallCount = small.length;
   const lastSmall = small.at(-1)?.slug;
+  // On three-column desktops, widen the trailing small cards to half rows so none are left
+  // stranded: 1 leftover → last four become 2×2, 2 leftovers → last two share a row.
+  const lgRemainder = smallCount % 3;
+  const halfOnLg = new Set(
+    small.slice(lgRemainder === 1 && smallCount >= 4 ? -4 : lgRemainder === 2 ? -2 : small.length).map((p) => p.slug),
+  );
 
   return (
     <section id="work" className="py-24 md:py-28">
@@ -27,8 +33,8 @@ export function WorkSection({ projects }: { projects: ProjectMeta[] }) {
             const span = p.featured
               ? 'md:col-span-3'
               : isLoneTrailer
-                ? 'md:col-span-6 lg:col-span-2'
-                : 'md:col-span-3 lg:col-span-2';
+                ? `md:col-span-6 ${halfOnLg.has(p.slug) ? 'lg:col-span-3' : 'lg:col-span-2'}`
+                : `md:col-span-3 ${halfOnLg.has(p.slug) ? 'lg:col-span-3' : 'lg:col-span-2'}`;
             return (
               <Reveal key={p.slug} className={span}>
                 <ProjectCard project={p} large={p.featured} />

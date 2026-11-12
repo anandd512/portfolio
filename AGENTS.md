@@ -186,9 +186,10 @@ channels so `rgb(var(--x) / <alpha>)` works. Tailwind maps them to `paper`, `pap
 | --- | --- | --- | --- | --- | --- |
 | 0 | Artha (`wealth-manager`) | Windows + iOS · Oct 2026 | yes | GitHub releases ("Download for Windows") | anandd512/wealth-manager |
 | 1 | CardArena (`taash-table`) | Live · Mar 2026 | yes | Azure App Service ("Play now") | anandd512/cardgames |
-| 2 | Drawesome (`drawesome`) | Live · Aug 2026 | no | anandd512.github.io/drawesome | anandd512/drawesome |
-| 3 | ELI5 (`eli5`) | Chrome & Edge extension · Aug 2026 | no | GitHub setup ("Install (2 min)") | anandd512/ELI5 |
-| 4 | Pacman, Rebuilt (`pacman`) | Playable here · Aug 2025 | no | /play/pacman/ (embedded) | anandd512/PACMAN |
+| 2 | chessroads (`chessroads`) | Installable web app · Nov 2026 | no | GitHub "Running it" ("Run it (one file)") | anandd512/chessroads |
+| 3 | Drawesome (`drawesome`) | Live · Aug 2026 | no | anandd512.github.io/drawesome | anandd512/drawesome |
+| 4 | ELI5 (`eli5`) | Chrome & Edge extension · Aug 2026 | no | GitHub setup ("Install (2 min)") | anandd512/ELI5 |
+| 5 | Pacman, Rebuilt (`pacman`) | Playable here · Aug 2025 | no | /play/pacman/ (embedded) | anandd512/PACMAN |
 
 Facts verified against the repos:
 
@@ -197,6 +198,10 @@ Facts verified against the repos:
   sync was removed, so it is not claimed.
 - **CardArena:** plain JavaScript client + Node/Express/Socket.IO. Server-authoritative state with
   per-seat views; bots take over dropped seats; rooms are in memory.
+- **chessroads:** a single `index.html` PWA (no server, no build), plain JavaScript with a small alpha-beta
+  engine in a Web Worker. Content counts from the embedded data: 4,251 puzzles, 26 repertoire lines,
+  12 traps, 12 + 8 lessons, 3,865 encyclopedia lines. AI model from commit trailers: Claude Opus 5.5.
+  Not deployed yet (GitHub Pages 404), so no "Live" claim; of the 41 review issues, B8 is still open.
 - **Drawesome:** text-to-diagram requires a connected AI model.
 - **Pacman:** DOM grid (not canvas). Red ghost chases, pink ambushes, cyan mostly wanders.
 

@@ -4,7 +4,7 @@ summary: A browser extension that explains unfamiliar terms right where you're r
 date: '2026-08'
 role: Product · Design · Build
 status: Chrome & Edge extension
-order: 3
+order: 4
 featured: false
 accent: '#3976A8'
 tags:
