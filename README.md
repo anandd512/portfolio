@@ -33,7 +33,7 @@ Everything is data-driven, so you rarely need to touch component code.
 
 | I want to change… | Edit this |
 | --- | --- |
-| Name, hero copy, proof numbers, "Now" line, links, contact copy | [`src/lib/site.ts`](src/lib/site.ts) → `site` |
+| Name, hero copy, links, contact copy | [`src/lib/site.ts`](src/lib/site.ts) → `site` |
 | Principles, About, section headings, nav | [`src/lib/site.ts`](src/lib/site.ts) |
 | Add / edit a **project** | A `.md` file in [`content/projects/`](content/projects) (copy `_TEMPLATE.md`) |
 | Project screenshots | `public/projects/<slug>/` (1600×1000 WebP) |

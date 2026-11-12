@@ -61,7 +61,7 @@ portfolio/
    ├─ app/                        ← layout, home, project + blog routes, sitemap, robots, icon, fonts
    ├─ components/
    │  ├─ Nav.tsx                  ← wordmark, active-section highlight, mobile menu, "Say hi"
-   │  ├─ Hero.tsx                 ← headline, proof numbers, "Now" line, fanned screenshot stack
+   │  ├─ Hero.tsx                 ← headline, intro, CTAs, fanned screenshot stack
    │  ├─ WorkSection.tsx + ProjectCard.tsx ← bento grid of side projects
    │  ├─ PrinciplesSection.tsx    ← "How I think", each principle with a receipt link
    │  ├─ AboutSection.tsx, WritingTeaser.tsx
@@ -79,8 +79,7 @@ portfolio/
 ### 4a. `src/lib/site.ts`
 
 - **`site`**: `name`, `firstName`, `title`, `location`, `url`, `description`, `heroHeadline` (wrap the
-  serif-italic phrase in `{{ }}`), `heroSub`, `proof[]` (big numbers; `value: 'projects'` becomes the
-  live project count), `now[]`, `email`, `links` (`linkedin`, `github`; empty string hides a link),
+  serif-italic phrase in `{{ }}`), `heroSub`, `email`, `links` (`linkedin`, `github`; empty string hides a link),
   `contact`, `footerNote`.
 - **`nav`**: `{ label, href, id? }[]`. `id` matches a home section for the active highlight.
 - **`work`**, **`principlesSection`** + **`principles`**, **`about`**, **`writing`**.
@@ -155,7 +154,7 @@ channels so `rgb(var(--x) / <alpha>)` works. Tailwind maps them to `paper`, `pap
 - **Add a project:** copy `_TEMPLATE.md`, add screenshots to `public/projects/<slug>/`, fill
   frontmatter. Card, hero stack, detail page and sitemap update automatically. Add `public/og/<slug>.png`.
 - **Add a blog post:** create `content/blog/my-post.md`.
-- **Edit hero / proof / Now line:** `site.ts` → `site`.
+- **Edit hero copy:** `site.ts` → `site`.
 - **Recolor:** CSS variables in `globals.css` (both `:root` and `.dark`).
 - **New section:** component in `src/components/`, copy in `site.ts`, place in `page.tsx`, add an
   `id` and a `nav` entry.

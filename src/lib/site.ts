@@ -22,20 +22,6 @@ export const site = {
   heroSub:
     'I turn small personal itches into real, working products with AI-assisted development. So far: a private finance app, a card table for scattered friends, a chess trainer, a whiteboard, a reading companion, and a Pacman with opinionated ghosts.',
 
-  // Big numbers under the hero. `value: 'projects'` is replaced with the live project count.
-  proof: [
-    { value: 'projects', label: 'Side projects you can click' },
-    { value: '5 days', label: 'Empty repo to installer (Artha)' },
-    { value: '1', label: 'College group back at the card table' },
-    { value: '3', label: 'Pacman ghosts, each with its own brain' },
-  ],
-
-  // The little "Now" line at the bottom of the hero.
-  now: [
-    { label: 'Building', value: 'Artha, now on iOS too' },
-    { label: 'Losing at', value: 'Judgement, mostly' },
-  ],
-
   // Contact + social. Leave a value empty ('') to hide that link.
   email: 'anandd512@gmail.com',
   links: {

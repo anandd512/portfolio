@@ -66,10 +66,6 @@ function HeroStack({ projects }: { projects: ProjectMeta[] }) {
 }
 
 export function Hero({ projects }: { projects: ProjectMeta[] }) {
-  const proof = site.proof.map((p) =>
-    p.value === 'projects' ? { ...p, value: String(projects.length) } : p,
-  );
-
   return (
     <section id="top" className="relative overflow-hidden pb-16 pt-28 md:pt-36">
       <div className="wrap">
@@ -97,40 +93,6 @@ export function Hero({ projects }: { projects: ProjectMeta[] }) {
         </div>
 
         <HeroStack projects={projects} />
-      </div>
-
-      <div className="wrap">
-        <dl className="rise mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line/10 pt-8 md:grid-cols-4" style={{ ['--rise-delay' as string]: '240ms' }}>
-          {proof.map((p) => (
-            <div key={p.label}>
-              <dt className="sr-only">{p.label}</dt>
-              <dd className="font-display text-[clamp(1.9rem,3.4vw,2.6rem)] font-semibold leading-none tracking-[-0.04em]">
-                {p.value}
-              </dd>
-              <dd className="mt-2 text-sm text-ink-soft">{p.label}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <p className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-ink-soft">
-          <span className="inline-flex items-center gap-2 text-ink">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500/60" />
-              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-            </span>
-            NOW
-          </span>
-          {site.now.map((n, i) => (
-            <span key={n.label}>
-              {i > 0 ? <span className="mr-3 text-line/30">/</span> : null}
-              <span className="text-ink-soft/80">{n.label}:</span> {n.value}
-            </span>
-          ))}
-          <span>
-            <span className="mr-3 text-line/30">/</span>
-            {site.location}
-          </span>
-        </p>
       </div>
     </section>
   );
